@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.drawerlayout.widget.DrawerLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/drawer_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#000000">
+
+    <!-- Main content -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal">
+
+        <!-- Left rail -->
+        <LinearLayout
+            android:layout_width="50dp"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:background="#000000"
+            android:paddingTop="10dp">
+
+            <ImageButton
+                android:id="@+id/menu_btn"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:src="@drawable/ic_menu"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:tint="#FFFFFF"
+                android:contentDescription="Menu" />
+        </LinearLayout>
+
+        <!-- Right content -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <!-- Top tab bar -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:orientation="horizontal"
+                android:background="#1A1A1A">
+
+                <Button
+                    android:id="@+id/tab_vpn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:text="VPN"
+                    android:textColor="#FFFFFF"
+                    android:background="?attr/selectableItemBackground"
+                    android:textSize="14sp" />
+
+                <Button
+                    android:id="@+id/tab_logs"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:text="LOGS"
+                    android:textColor="#FFFFFF"
+                    android:background="?attr/selectableItemBackground"
+                    android:textSize="14sp" />
+
+                <View android:layout_width="0dp" android:layout_height="1dp" android:layout_weight="1"/>
+
+                <ImageButton
+                    android:id="@+id/copy_logs_btn"
+                    android:layout_width="50dp"
+                    android:layout_height="match_parent"
+                    android:src="@drawable/ic_copy"
+                    android:background="?attr/selectableItemBackgroundBorderless"
+                    android:tint="#00FF00"
+                    android:contentDescription="Copy logs" />
+            </LinearLayout>
+
+            <!-- VPN Screen -->
+            <LinearLayout
+                android:id="@+id/vpn_screen"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:padding="20dp">
+
+                <View android:layout_width="1dp" android:layout_height="0dp" android:layout_weight="1"/>
+
+                <TextView
+                    android:id="@+id/status_label"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="DISCONNECTED"
+                    android:textColor="#FF5252"
+                    android:textSize="28sp"
+                    android:textStyle="bold"
+                    android:gravity="center"
+                    android:layout_marginBottom="12dp"/>
+
+                <TextView
+                    android:id="@+id/bug_info"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Bug: —"
+                    android:textColor="#888888"
+                    android:textSize="13sp"
+                    android:gravity="center"
+                    android:layout_marginBottom="24dp"/>
+
+                <Button
+                    android:id="@+id/connect_btn"
+                    android:layout_width="80%"
+                    android:layout_height="48dp"
+                    android:text="CONNECT"
+                    android:textColor="#FFFFFF"
+                    android:backgroundTint="#006600"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginBottom="16dp"/>
+
+                <Button
+                    android:id="@+id/scan_btn"
+                    android:layout_width="80%"
+                    android:layout_height="48dp"
+                    android:text="START SCAN"
+                    android:textColor="#FFFFFF"
+                    android:backgroundTint="#1565C0"
+                    android:layout_gravity="center_horizontal"/>
+
+                <View android:layout_width="1dp" android:layout_height="0dp" android:layout_weight="1"/>
+            </LinearLayout>
+
+            <!-- Logs Screen (hidden by default) -->
+            <ScrollView
+                android:id="@+id/logs_screen"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:visibility="gone"
+                android:background="#000000">
+
+                <TextView
+                    android:id="@+id/log_text"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="--- System Ready ---\n"
+                    android:textColor="#888888"
+                    android:textSize="12sp"
+                    android:fontFamily="monospace"
+                    android:padding="10dp"/>
+            </ScrollView>
+
+        </LinearLayout>
+    </LinearLayout>
+
+    <!-- Navigation Drawer -->
+    <LinearLayout
+        android:layout_width="280dp"
+        android:layout_height="match_parent"
+        android:layout_gravity="start"
+        android:orientation="vertical"
+        android:background="#1A1A1A"
+        android:padding="15dp">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Server Settings"
+            android:textColor="#FFFFFF"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:layout_marginBottom="16dp"/>
+
+        <EditText
+            android:id="@+id/bug_input"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Bug Host"
+            android:textColor="#FFFFFF"
+            android:textColorHint="#666666"
+            android:backgroundTint="#444444"
+            android:inputType="text"
+            android:layout_marginBottom="16dp"/>
+
+        <Button
+            android:id="@+id/apply_bug_btn"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:text="APPLY BUG"
+            android:textColor="#FFFFFF"
+            android:backgroundTint="#006600"/>
+
+    </LinearLayout>
+
+</androidx.drawerlayout.widget.DrawerLayout>
